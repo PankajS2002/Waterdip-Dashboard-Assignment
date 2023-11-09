@@ -208,7 +208,7 @@ const options2 = {
 
   const options4 = {
     series: [{
-    data: [23, 11, 54, 36, 26, 32, 2, 52, 12, 23, 43, 53]
+    data: [23, 11, 54, 36, 26, 21, 2, 10,33,20, 11,11]
   }],
     chart: {
     type: 'area',
@@ -243,45 +243,55 @@ const options2 = {
   }
   };
 
-
   useEffect(() => {
-    const chart = new ApexCharts(document.querySelector("#chart"), options);
+    const chart = new ApexCharts(document.querySelector("#chart1"), options);
     chart.render();
-   
-    const chart2 = new ApexCharts(document.querySelector("#chart"), options2);
+
+    const chart2 = new ApexCharts(document.querySelector("#chart2"), options2);
     chart2.render();
 
-    const chart3 = new ApexCharts(document.querySelector("#chart"), options3);
+    const chart3 = new ApexCharts(document.querySelector("#chart3"), options3);
     chart3.render();
-    
-    const chart4 = new ApexCharts(document.querySelector("#chart"), options4);
+
+    const chart4 = new ApexCharts(document.querySelector("#chart4"), options4);
     chart4.render();
-   
+
     return () => {
       chart.destroy();
       chart2.destroy();
       chart3.destroy();
       chart4.destroy();
-      
     };
- 
-  }, [options,options2,options3,options4]);
+  }, [options, options2, options3, options4]);
 
   return (
-    <div id="chart">
-      <Chart options={options} series={[{ data: dates }]} type="area" height={350} />
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
+      <div style={chartContainerStyle} id="chart1">
+        <Chart options={options} />
+      </div>
+
+      <div style={chartContainerStyle} id="chart2">
+        <Chart options={options2} />
+      </div>
+
+      <div style={chartContainerStyle} id="chart3">
+        <Chart options={options3} />
+      </div>
+
+      <div style={chartContainerStyle} id="chart4">
+        <Chart options={options4} />
+      </div>
     </div>
   );
 };
+
+const chartContainerStyle = {
+  width: '45%', // Adjust the width as needed
+  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+  borderRadius: '8px',
+  overflow: 'hidden',
+  marginBottom: '20px',
+  // Add any other inline styles you want
+};
+
 export default Dashboard;
-
-
-
-
-
-
-
-
-
-  
- 
