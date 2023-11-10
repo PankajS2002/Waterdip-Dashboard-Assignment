@@ -4,6 +4,9 @@ import Papa from 'papaparse';
 import Data from './data.csv';
 import ApexCharts from 'apexcharts';
 
+
+/* using react app as vite was unable to retrieve contents from csv*/
+
 const App = () => {
   const [data, setData] = useState([]);
 
